@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Guia visual de resolução para Cubo Mágico 2x2, 3x3 e Pyraminx">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <title>Rubik Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Install Banner -->
+    <div class="install-banner" id="installBanner">
+      <span>📱 Instale o app para usar offline</span>
+      <button id="installBtn">Instalar</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <h1 id="headerTitle">🧩 Rubik Guide</h1>
+      <button class="header-btn" id="themeBtn" title="Alternar tema">🌙</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- HOME SCREEN -->
+      <section class="screen active" id="home">
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Escolha o cubo que você quer aprender:</p>
+        
+        <div class="cube-grid">
+          <div class="cube-card" data-cube="3x3">
+            <div class="cube-icon">🟦</div>
+            <div class="cube-info">
+              <h2>3x3</h2>
+              <p>Método de Iniciante completo</p>
+            </div>
+          </div>
+
+          <div class="cube-card" data-cube="2x2">
+            <div class="cube-icon">🟧</div>
+            <div class="cube-info">
+              <h2>2x2</h2>
+              <p>Método simples + algoritmos</p>
+            </div>
+          </div>
+
+          <div class="cube-card" data-cube="pyraminx">
+            <div class="cube-icon">🔺</div>
+            <div class="cube-info">
+              <h2>Pyraminx</h2>
+              <p>Método de Iniciante completo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip mt-4">
+          💡 Dica: Depois de instalar, o app funciona 100% offline.<br>
+          Use o <strong>Modo Treino</strong> em cada cubo para ver um passo por vez.
+        </div>
+      </section>
+
+      <!-- ==================== 3x3 SCREEN ==================== -->
+      <section class="screen" id="3x3">
+        <button class="back-btn" data-back>← Voltar</button>
+        
+        <div class="screen-header">
+          <h2>3x3 – Método de Iniciante</h2>
+          <button class="btn-treino" data-treino="3x3">🎯 Modo Treino</button>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress3x3" style="width: 0%"></div>
+        </div>
+        <p class="subtitle">7 etapas • Layer by Layer</p>
+
+        <!-- Modo normal: todos os passos -->
+        <div class="steps-container" id="steps-3x3">
+          <div class="step" data-step="1">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h3>Cruz Branca</h3>
+            </div>
+            <p>Forme a cruz branca na face de baixo, com as cores laterais batendo com os centros.</p>
+            <div class="tip">Não precisa de algoritmo fixo. Faça visualmente. Tente em no máximo 8 movimentos.</div>
+          </div>
+
+          <div class="step" data-step="2">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h3>Cantos Brancos</h3>
+            </div>
+            <p>Complete a face branca colocando os 4 cantos no lugar.</p>
+            <div class="algo">R' D' R D</div>
+            <p>Repita até o canto entrar corretamente (1 a 5 vezes).</p>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h3>Segunda Camada</h3>
+            </div>
+            <p>Coloque as 4 arestas do meio (sem branco nem amarelo).</p>
+            <p><strong>Para a direita:</strong></p>
+            <div class="algo">U R U' R' U' F' U F</div>
+            <p><strong>Para a esquerda:</strong></p>
+            <div class="algo">U' L' U L U F U' F'</div>
+          </div>
+
+          <div class="step" data-step="4">
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <h3>Cruz Amarela</h3>
+            </div>
+            <p>Forme a cruz amarela na face de cima.</p>
+            <div class="algo">F R U R' U' F'</div>
+            <div class="tip">
+              • Ponto → faça 1x<br>
+              • “L” → coloque no canto superior esquerdo<br>
+              • Linha → coloque na horizontal
+            </div>
+          </div>
+
+          <div class="step" data-step="5">
+            <div class="step-header">
+              <div class="step-number">5</div>
+              <h3>Orientar Cantos Amarelos</h3>
+            </div>
+            <p>Deixe a face de cima toda amarela.</p>
+            <div class="algo">R U R' U R U2 R'</div>
+            <p>Coloque um canto já amarelo no canto traseiro-direito e repita.</p>
+          </div>
+
+          <div class="step" data-step="6">
+            <div class="step-header">
+              <div class="step-number">6</div>
+              <h3>Posicionar Cantos</h3>
+            </div>
+            <p>Coloque os cantos amarelos nas posições corretas.</p>
+            <div class="algo">U R U' L' U R' U' L</div>
+            <div class="tip">Deixe um canto certo no traseiro-direito. Se nenhum estiver certo, faça o algoritmo 1x.</div>
+          </div>
+
+          <div class="step" data-step="7">
+            <div class="step-header">
+              <div class="step-number">7</div>
+              <h3>Posicionar Arestas</h3>
+            </div>
+            <p>Última etapa! Coloque as arestas amarelas no lugar.</p>
+            <div class="algo">F2 U R' L F2 R L' U F2</div>
+            <div class="tip">Se só 2 arestas estiverem erradas, gire a face de cima até uma ficar certa.</div>
+          </div>
+        </div>
+
+        <!-- Modo Treino -->
+        <div class="treino-container hidden" id="treino-3x3">
+          <div class="treino-progress">
+            <span id="treino-counter-3x3">Passo 1 de 7</span>
+          </div>
+          <div class="treino-step" id="treino-step-3x3"></div>
+          <div class="treino-controls">
+            <button class="btn btn-secondary" id="treino-prev-3x3">← Anterior</button>
+            <button class="btn" id="treino-next-3x3">Próximo →</button>
+          </div>
+          <button class="btn btn-secondary mt-2" data-sair-treino="3x3">Sair do Modo Treino</button>
+        </div>
+
+        <button class="btn btn-secondary mt-4" id="resetProgress3x3">🔄 Resetar progresso</button>
+      </section>
+
+      <!-- ==================== 2x2 SCREEN ==================== -->
+      <section class="screen" id="2x2">
+        <button class="back-btn" data-back>← Voltar</button>
+        
+        <div class="screen-header">
+          <h2>2x2 – Método de Iniciante</h2>
+          <button class="btn-treino" data-treino="2x2">🎯 Modo Treino</button>
+        </div>
+        <p class="subtitle">Layer by Layer • 3 etapas principais</p>
+
+        <div class="steps-container" id="steps-2x2">
+          <!-- Step 1 -->
+          <div class="step" data-step="1">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h3>Primeira Camada (Face Branca)</h3>
+            </div>
+            <p>Escolha a cor branca e monte a face completa + a camada inteira.</p>
+            <div class="tip">
+              Use o algoritmo clássico quando o canto estiver em cima:<br>
+              <strong>R' D' R D</strong> (repita até entrar).
+            </div>
+            <div class="algo">R' D' R D</div>
+          </div>
+
+          <!-- Step 2 - OLL -->
+          <div class="step" data-step="2">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h3>Orientar a Última Camada (OLL)</h3>
+            </div>
+            <p>Deixe a face de cima toda amarela. Existem 7 casos principais:</p>
+
+            <p><strong>1. Sune (1 canto orientado)</strong></p>
+            <div class="algo">R U R' U R U2 R'</div>
+
+            <p><strong>2. Anti-Sune</strong></p>
+            <div class="algo">R U2 R' U' R U' R'</div>
+
+            <p><strong>3. Pi / Bruno (2 cantos opostos)</strong></p>
+            <div class="algo">R U2 R2 U' R2 U' R2 U2 R</div>
+
+            <p><strong>4. Headlights (2 cantos adjacentes)</strong></p>
+            <div class="algo">R2 U R' U' R' U R' U' R' U R'</div>
+
+            <p><strong>5. H (todos os cantos virados)</strong></p>
+            <div class="algo">R2 U2 R U2 R2</div>
+
+            <p><strong>6. T</strong></p>
+            <div class="algo">R U R' U' R' F R F'</div>
+
+            <p><strong>7. L</strong></p>
+            <div class="algo">F R' F' R U R U' R'</div>
+          </div>
+
+          <!-- Step 3 - PLL -->
+          <div class="step" data-step="3">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h3>Permutar a Última Camada (PLL)</h3>
+            </div>
+            <p>Coloque os cantos nas posições corretas. Casos principais:</p>
+
+            <p><strong>1. Adjacent Swap (dois cantos vizinhos)</strong></p>
+            <div class="algo">R U R' U' R' F R2 U' R' U' R U R' F'</div>
+
+            <p><strong>2. Diagonal Swap (cantos opostos)</strong></p>
+            <div class="algo">F R U' R' U' R U R' F' R U R' U' R' F R F'</div>
+
+            <p><strong>Versão mais curta (Y-Perm adaptado):</strong></p>
+            <div class="algo">R' F R' B2 R F' R' B2 R2</div>
+
+            <div class="tip">No 2x2 você só precisa desses dois casos de PLL. Reconheça se os cantos trocados são adjacentes ou diagonais.</div>
+          </div>
+        </div>
+
+        <!-- Modo Treino 2x2 -->
+        <div class="treino-container hidden" id="treino-2x2">
+          <div class="treino-progress">
+            <span id="treino-counter-2x2">Passo 1 de 3</span>
+          </div>
+          <div class="treino-step" id="treino-step-2x2"></div>
+          <div class="treino-controls">
+            <button class="btn btn-secondary" id="treino-prev-2x2">← Anterior</button>
+            <button class="btn" id="treino-next-2x2">Próximo →</button>
+          </div>
+          <button class="btn btn-secondary mt-2" data-sair-treino="2x2">Sair do Modo Treino</button>
+        </div>
+      </section>
+
+      <!-- ==================== PYRAMINX SCREEN ==================== -->
+      <section class="screen" id="pyraminx">
+        <button class="back-btn" data-back>← Voltar</button>
+        
+        <div class="screen-header">
+          <h2>Pyraminx – Método de Iniciante</h2>
+          <button class="btn-treino" data-treino="pyraminx">🎯 Modo Treino</button>
+        </div>
+        <p class="subtitle">Método em camadas • bem mais fácil que o 3x3</p>
+
+        <div class="steps-container" id="steps-pyraminx">
+          <!-- Step 1 -->
+          <div class="step" data-step="1">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <h3>Resolver as 4 Pontas (Tips)</h3>
+            </div>
+            <p>Gire cada ponta até a cor bater com o centro do eixo correspondente.</p>
+            <div class="tip">Isso é extremamente fácil e rápido. Faça as 4 pontas primeiro sempre.</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step" data-step="2">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <h3>Resolver a primeira camada (centros + arestas)</h3>
+            </div>
+            <p>Escolha uma cor (geralmente amarelo ou a que estiver mais fácil) e monte a face + as 3 arestas da camada.</p>
+            <div class="tip">
+              Segure a ponta já resolvida embaixo. Traga as arestas certas para a camada de baixo.
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step" data-step="3">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <h3>Orientar as arestas da última camada</h3>
+            </div>
+            <p>Deixe as 3 arestas de cima com a cor correta virada para cima.</p>
+            <div class="algo">R U R' U'</div>
+            <p>Ou o inverso:</p>
+            <div class="algo">U R U' R'</div>
+            <div class="tip">Repita o algoritmo até todas as arestas estarem orientadas. É o famoso “sexy move”.</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step" data-step="4">
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <h3>Permutar as arestas da última camada</h3>
+            </div>
+            <p>Coloque as 3 arestas nas posições corretas.</p>
+
+            <p><strong>Ciclo horário:</strong></p>
+            <div class="algo">R' L R L'</div>
+
+            <p><strong>Ciclo anti-horário:</strong></p>
+            <div class="algo">L R' L' R</div>
+
+            <div class="tip">
+              Se duas arestas estiverem certas e uma errada, na verdade as três estão em ciclo.  
+              Use um dos algoritmos acima.
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step" data-step="5">
+            <div class="step-header">
+              <div class="step-number">5</div>
+              <h3>Casos extras úteis</h3>
+            </div>
+            <p><strong>Flip de duas arestas (raro no método básico):</strong></p>
+            <div class="algo">R U R' U R U2 R'</div>
+
+            <p><strong>Para desfazer um centro errado rapidamente:</strong></p>
+            <div class="algo">R U R' U'</div>
+          </div>
+        </div>
+
+        <!-- Modo Treino Pyraminx -->
+        <div class="treino-container hidden" id="treino-pyraminx">
+          <div class="treino-progress">
+            <span id="treino-counter-pyraminx">Passo 1 de 5</span>
+          </div>
+          <div class="treino-step" id="treino-step-pyraminx"></div>
+          <div class="treino-controls">
+            <button class="btn btn-secondary" id="treino-prev-pyraminx">← Anterior</button>
+            <button class="btn" id="treino-next-pyraminx">Próximo →</button>
+          </div>
+          <button class="btn btn-secondary mt-2" data-sair-treino="pyraminx">Sair do Modo Treino</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="nav">
+      <button class="nav-btn active" data-screen="home">
+        <span class="icon">🏠</span>
+        Início
+      </button>
+      <button class="nav-btn" data-screen="3x3">
+        <span class="icon">🟦</span>
+        3x3
+      </button>
+      <button class="nav-btn" data-screen="2x2">
+        <span class="icon">🟧</span>
+        2x2
+      </button>
+      <button class="nav-btn" data-screen="pyraminx">
+        <span class="icon">🔺</span>
+        Pyra
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
