@@ -56,6 +56,10 @@ body {
   gap: 8px;
 }
 
+.header-img {
+  width: 42px;
+}
+
 .header-btn {
   background: none;
   border: none;
@@ -68,6 +72,10 @@ body {
 
 .header-btn:active {
   background: var(--border);
+}
+
+.header-btn img {
+  width: 42px;
 }
 
 /* Navigation (bottom) */
@@ -99,8 +107,8 @@ body {
   color: var(--primary);
 }
 
-.nav-btn span.icon {
-  font-size: 1.4rem;
+.nav-btn img.icon {
+  width: 24px;
 }
 
 /* Main content */

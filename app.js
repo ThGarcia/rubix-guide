@@ -21,11 +21,14 @@ const installBtn = document.getElementById('installBtn');
 
 // Titles
 const titles = {
-  home: '🧩 Rubik Guide',
+  home: 'Rubik Guide',
   '3x3': '3x3 – Iniciante',
   '2x2': '2x2 – Iniciante',
   pyraminx: 'Pyraminx'
 };
+
+const light = './images/light.png';
+const dark = './images/dark.png';
 
 // ======================
 // Navigation
@@ -61,20 +64,21 @@ document.querySelectorAll('[data-back]').forEach(btn => {
 // Theme
 // ======================
 function applyTheme(theme) {
+  const themeImg = themeBtn.querySelector('img');
   if (theme === 'light') {
     document.documentElement.style.setProperty('--bg', '#f8fafc');
     document.documentElement.style.setProperty('--bg-card', '#ffffff');
     document.documentElement.style.setProperty('--text', '#0f172a');
     document.documentElement.style.setProperty('--text-muted', '#64748b');
     document.documentElement.style.setProperty('--border', '#e2e8f0');
-    themeBtn.textContent = '☀️';
+    if (themeImg) themeImg.src = light; 
   } else {
     document.documentElement.style.setProperty('--bg', '#0f172a');
     document.documentElement.style.setProperty('--bg-card', '#1e293b');
     document.documentElement.style.setProperty('--text', '#f1f5f9');
     document.documentElement.style.setProperty('--text-muted', '#94a3b8');
     document.documentElement.style.setProperty('--border', '#334155');
-    themeBtn.textContent = '🌙';
+    if (themeImg) themeImg.src = dark;
   }
   localStorage.setItem('theme', theme);
 }
