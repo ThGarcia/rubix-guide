@@ -1,7 +1,3 @@
-// ======================
-// Rubik Guide - App JS
-// ======================
-
 // Register Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
