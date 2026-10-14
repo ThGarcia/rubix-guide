@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -13,6 +14,7 @@
   <title>Rubik Guide</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="app">
     <!-- Install Banner -->
@@ -32,7 +34,7 @@
       <!-- HOME SCREEN -->
       <section class="screen active" id="home">
         <p style="color: var(--text-muted); margin-bottom: 20px;">Escolha o cubo que você quer aprender:</p>
-        
+
         <div class="cube-grid">
           <div class="cube-card" data-cube="3x3">
             <img src="./images/3x3.png" class="cube-icon" />
@@ -57,6 +59,14 @@
               <p>Método de Iniciante completo</p>
             </div>
           </div>
+
+          <div class="cube-card" data-cube="pdfs">
+            <img src="./images/pdf.png" class="cube-icon" />
+            <div class="cube-info">
+              <h2>PDFs</h2>
+              <p>Manuais Oficiais</p>
+            </div>
+          </div>
         </div>
 
         <div class="tip mt-4">
@@ -68,7 +78,7 @@
       <!-- ==================== 3x3 SCREEN ==================== -->
       <section class="screen" id="3x3">
         <button class="back-btn" data-back>← Voltar</button>
-        
+
         <div class="screen-header">
           <h2>3x3 – Método de Iniciante</h2>
           <button class="btn-treino" data-treino="3x3">🎯 Modo Treino</button>
@@ -143,7 +153,8 @@
             </div>
             <p>Coloque os cantos amarelos nas posições corretas.</p>
             <div class="algo">U R U' L' U R' U' L</div>
-            <div class="tip">Deixe um canto certo no traseiro-direito. Se nenhum estiver certo, faça o algoritmo 1x.</div>
+            <div class="tip">Deixe um canto certo no traseiro-direito. Se nenhum estiver certo, faça o algoritmo 1x.
+            </div>
           </div>
 
           <div class="step" data-step="7">
@@ -176,7 +187,7 @@
       <!-- ==================== 2x2 SCREEN ==================== -->
       <section class="screen" id="2x2">
         <button class="back-btn" data-back>← Voltar</button>
-        
+
         <div class="screen-header">
           <h2>2x2 – Método de Iniciante</h2>
           <button class="btn-treino" data-treino="2x2">🎯 Modo Treino</button>
@@ -245,7 +256,8 @@
             <p><strong>Versão mais curta (Y-Perm adaptado):</strong></p>
             <div class="algo">R' F R' B2 R F' R' B2 R2</div>
 
-            <div class="tip">No 2x2 você só precisa desses dois casos de PLL. Reconheça se os cantos trocados são adjacentes ou diagonais.</div>
+            <div class="tip">No 2x2 você só precisa desses dois casos de PLL. Reconheça se os cantos trocados são
+              adjacentes ou diagonais.</div>
           </div>
         </div>
 
@@ -266,7 +278,7 @@
       <!-- ==================== PYRAMINX SCREEN ==================== -->
       <section class="screen" id="pyraminx">
         <button class="back-btn" data-back>← Voltar</button>
-        
+
         <div class="screen-header">
           <h2>Pyraminx – Método de Iniciante</h2>
           <button class="btn-treino" data-treino="pyraminx">🎯 Modo Treino</button>
@@ -290,7 +302,8 @@
               <div class="step-number">2</div>
               <h3>Resolver a primeira camada (centros + arestas)</h3>
             </div>
-            <p>Escolha uma cor (geralmente amarelo ou a que estiver mais fácil) e monte a face + as 3 arestas da camada.</p>
+            <p>Escolha uma cor (geralmente amarelo ou a que estiver mais fácil) e monte a face + as 3 arestas da camada.
+            </p>
             <div class="tip">
               Segure a ponta já resolvida embaixo. Traga as arestas certas para a camada de baixo.
             </div>
@@ -324,7 +337,7 @@
             <div class="algo">L R' L' R</div>
 
             <div class="tip">
-              Se duas arestas estiverem certas e uma errada, na verdade as três estão em ciclo.  
+              Se duas arestas estiverem certas e uma errada, na verdade as três estão em ciclo.
               Use um dos algoritmos acima.
             </div>
           </div>
@@ -356,6 +369,20 @@
           <button class="btn btn-secondary mt-2" data-sair-treino="pyraminx">Sair do Modo Treino</button>
         </div>
       </section>
+
+      <!-- ==================== PDFS SCREEN ==================== -->
+      <section class="screen" id="pdfs">
+        <button class="back-btn" data-back>← Voltar</button>
+        
+        <div class="screen-header">
+          <h2>Documentos PDF</h2>
+        </div>
+        <p class="subtitle">Toque em um arquivo para abrir no navegador</p>
+
+        <div class="pdf-list" id="pdfList">
+          <!-- Os PDFs serão listados dinamicamente aqui pelo JavaScript -->
+        </div>
+      </section>
     </main>
 
     <!-- Bottom Navigation -->
@@ -376,9 +403,14 @@
         <img src="./images/pyraminx.png" class="icon" />
         Pyra
       </button>
+      <button class="nav-btn" data-screen="pdfs">
+        <img src="./images/pdf.png" class="icon" />
+        PDFs
+      </button>
     </nav>
   </div>
 
   <script src="app.js"></script>
 </body>
+
 </html>

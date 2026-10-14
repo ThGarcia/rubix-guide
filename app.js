@@ -257,3 +257,38 @@ const last = localStorage.getItem('lastScreen');
 if (last && last !== 'home') {
   showScreen(last);
 }
+
+// ======================
+// PDFs
+// ======================
+const pdfFiles = [
+  { name: "MoYu 2X2", file: "MoYu 2X2.pdf" },
+  { name: "MoYu 3X3", file: "MoYu 3X3.pdf" },
+  { name: "MoYu Pyraminx", file: "MoYu Pyraminx.pdf" }
+];
+
+function loadPdfList() {
+  const pdfListContainer = document.getElementById('pdfList');
+  if (!pdfListContainer) return;
+
+  pdfListContainer.innerHTML = '';
+
+  pdfFiles.forEach(pdf => {
+    const a = document.createElement('a');
+    a.href = `./pdfs/${pdf.file}`;
+    a.target = '_blank'; 
+    a.className = 'pdf-card';
+    
+    a.innerHTML = `
+      <span>${pdf.name}</span>
+      <span style="font-size: 0.85rem; color: var(--text-muted, #94a3b8);">Abrir ↗</span>
+    `;
+    
+    pdfListContainer.appendChild(a);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadPdfList();
+  // ... (mantenha o restante do seu código de inicialização do app.js)
+});

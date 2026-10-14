@@ -439,3 +439,34 @@ body {
 
 .mt-2 { margin-top: 8px; }
 .mt-4 { margin-top: 16px; }
+
+.pdf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.pdf-card {
+  background: var(--bg-card, #1e293b);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text, #f8fafc);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.pdf-card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover, #334155);
+}
+
+.pdf-card span {
+  font-weight: 500;
+  font-size: 1rem;
+}
