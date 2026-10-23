@@ -264,7 +264,9 @@ if (last && last !== 'home') {
 const pdfFiles = [
   { name: "MoYu 2X2", file: "MoYu 2X2.pdf" },
   { name: "MoYu 3X3", file: "MoYu 3X3.pdf" },
-  { name: "MoYu Pyraminx", file: "MoYu Pyraminx.pdf" }
+  { name: "MoYu Pyraminx", file: "MoYu Pyraminx.pdf" },
+  { name: "MoYu Rubix", file: "MoYu Rubix.pdf" },
+  { name: "Pyraminx", file: "Pyraminx.pdf" }
 ];
 
 function loadPdfList() {
